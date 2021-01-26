@@ -1,18 +1,12 @@
-language: node_js
-node_js:
-  - "10.21.0"
-
-addons:
-  chrome: stable
-
-before_script:
-  - npm install -g @angular/cli@8.3.25
+workflows:
+  build:
+    jobs:
+      - build
 
 jobs:
   build:
     run:
-      - stage: test
-        name: "Join Journey Test"
+      - name: "Join Journey Test"
         command: ng e2e --protractor-config='e2e/src/desktop/journey.conf.js'
     run:
       - name: "Add User to Group"
