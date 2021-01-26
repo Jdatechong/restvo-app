@@ -1,13 +1,3 @@
-language: node_js
-node_js:
-  - "10.23.0"
-
-addons:
-  chrome: stable
-
-before_script:
-  - npm install -g @angular/cli@8.3.25
-
 version: 2.1
 
 jobs:
@@ -42,19 +32,19 @@ jobs:
             - node_modules
       - run:
           name: "Join Journey Test"
-          command: ng e2e --protractor-config='e2e/src/desktop/journey.conf.js'
+          command: npm run e2e -- --protractor-config='e2e/src/desktop/journey.conf.js'
       - run:
           name: "Add User to Group"
-          command: ng e2e --protractor-config='e2e/src/desktop/add-user-to-group.conf.js'
+          command: npm run e2e -- --protractor-config='e2e/src/desktop/add-user-to-group.conf.js'
       - run:
           name: "Register New Account Test"
-          command: ng e2e --protractor-config='e2e/src/desktop/register.conf.js'
+          command: npm run e2e -- --protractor-config='e2e/src/desktop/register.conf.js'
       - run:
           name: "Tab Navigation Test"
-          command: ng e2e --protractor-config='e2e/src/mobile/tab-navigate.conf.js'
+          command: npm run e2e -- --protractor-config='e2e/src/mobile/tab-navigate.conf.js'
       - run:
           name: "Add and Remove Friend"
-          command: ng e2e --protractor-config='e2e/src/desktop/add-and-remove-restvo-friend.conf.js'
+          command: npm run e2e -- --protractor-config='e2e/src/desktop/add-and-remove-restvo-friend.conf.js'
       - run:
           name: "Create and Delete a Community"
-          command: ng e2e --protractor-config='e2e/src/desktop/create-delete-community.conf.js'
+          command: npm run e2e -- --protractor-config='e2e/src/desktop/create-delete-community.conf.js'
