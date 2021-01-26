@@ -17,10 +17,6 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-      # Install Angular CLI
-      - run:
-          name: Install angular cli
-          command: npm install -g @angular/cli@8.3.25
       # Install project dependencies
       - run:
           name: Install local dependencies
