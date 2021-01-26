@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "10.21.0"
+  - "10.23.0"
 
 addons:
   chrome: stable
@@ -9,25 +9,28 @@ before_script:
   - npm install -g @angular/cli@8.3.25
 
 version: 2.1
-workflows:
-  version: 2
-  build:
-    jobs:
-      - build
 
 jobs:
   build:
+    docker:
+      - image: circleci/node:10.23.0
+    working_directory: ~/server
     steps:
-      run:
-        - name: "Join Journey Test"
+      - run:
+          name: "Join Journey Test"
           command: ng e2e --protractor-config='e2e/src/desktop/journey.conf.js'
-        - name: "Add User to Group"
+      - run:
+          name: "Add User to Group"
           command: ng e2e --protractor-config='e2e/src/desktop/add-user-to-group.conf.js'
-        - name: "Register New Account Test"
+      - run:
+          name: "Register New Account Test"
           command: ng e2e --protractor-config='e2e/src/desktop/register.conf.js'
-        - name: "Tab Navigation Test"
+      - run:
+          name: "Tab Navigation Test"
           command: ng e2e --protractor-config='e2e/src/mobile/tab-navigate.conf.js'
-        - name: "Add and Remove Friend"
+      - run:
+          name: "Add and Remove Friend"
           command: ng e2e --protractor-config='e2e/src/desktop/add-and-remove-restvo-friend.conf.js'
-        - name: "Create and Delete a Community"
+      - run:
+          name: "Create and Delete a Community"
           command: ng e2e --protractor-config='e2e/src/desktop/create-delete-community.conf.js'
