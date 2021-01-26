@@ -17,6 +17,7 @@ workflows:
 
 jobs:
   build:
+    run:
       - name: "Join Journey Test"
         command: ng e2e --protractor-config='e2e/src/desktop/journey.conf.js'
       - name: "Add User to Group"
