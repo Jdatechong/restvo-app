@@ -5,7 +5,7 @@ jobs:
     docker:
       - image: circleci/node:10-browsers
     working_directory: ~/server
-    parallelism: 4
+    parallelism: 3
     steps:
       # Checkout the code from the branch into the working_directory
       - checkout
